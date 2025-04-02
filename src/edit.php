@@ -8,20 +8,20 @@ include_once("config.php");
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">	
-	<title>Electroshop S.L.</title>
+	<title>Pokemon S.L.</title>
 </head>
 <body>
 <div>
 	<header>
-		<h1>ELECTROSHOP S.L.</h1>
+		<h1>Pokemon S.L.</h1>
 	</header>
 	
 	<main>				
 	<ul>
 		<li><a href="index.php" >Inicio</a></li>
-		<li><a href="add.html" >Alta</a></li>
+		<li><a href="add.html" >Añadir competidor/a</a></li>
 	</ul>
-	<h2>Modificación empleado/a</h2>
+	<h2>Modificar competidor/a</h2>
 
 
 <?php
@@ -30,14 +30,14 @@ include_once("config.php");
 /*Obtiene el id del registro del empleado a modificar, idempleado, a partir de su URL. Este tipo de datos se accede utilizando el método: GET*/
 
 //Recoge el id del empleado a modificar a través de la clave idempleado del array asociativo $_GET y lo almacena en la variable idempleado
-$idempleado = $_GET['idempleado'];
+$identrenador = $_GET['identrenador'];
 
 //Con mysqli_real_scape_string protege caracteres especiales en una cadena para ser usada en una sentencia SQL.
-$idempleado = $mysqli->real_escape_string($idempleado);
+$identrenador = $mysqli->real_escape_string($identrenador);
 
 
 //Se selecciona el registro a modificar: select
-$resultado = $mysqli->query("SELECT apellido, nombre, edad, pokemon_principal, puesto, ciudad_natal FROM Pokemon");
+$resultado = $mysqli->query("SELECT apellido, nombre, edad, pokemon_principal, puesto, ciudad_natal FROM Entrenadores WHERE identrenador = $identrenador" );
 
 //Se extrae el registro y lo guarda en el array $fila
 //Nota: También se puede utilizar el método fetch_assoc de la siguiente manera: $fila = $resultado->fetch_assoc();
@@ -46,7 +46,7 @@ $surname = $fila['apellido'];
 $name = $fila['nombre'];
 $age = $fila['edad'];
 $pokemon_principal = $fila['pokemon_principal'];
-$job = $fila['puesto'];
+$puesto = $fila['puesto'];
 $ciudad_natal = $fila['ciudad_natal'];
 
 //Se cierra la conexión de base de datos
@@ -78,17 +78,12 @@ $mysqli->close();
 		</div>
 
 		<div>
-			<label for="job">Puesto</label>
-			<select name="job" id="job" placeholder="puesto">
-				<option value="<?php echo $job;?>" selected><?php echo $job;?></option>
-				<option value="Administrativo">Administrativo</option>
-				<option value="Contable">Contable</option>
-				<option value="Dependiente">Dependiente</option>
-				<option value="Gerente">Gerente</option>
-				<option value="Repartidor">Repartidor</option>
-				<option value="Lider">Repartidor</option>
-				<option value="Campeon">Repartidor</option>
-				<option value="Entrenador">Repartidor</option>
+			<label for="puesto">Puesto</label>
+			<select name="puesto" id="puesto" placeholder="puesto">
+				<option value="<?php echo $puesto;?>" selected><?php echo $puesto;?></option>
+				<option value="Lider">Lider</option>
+				<option value="Campeon/a">Campeon/a</option>
+				<option value="Entrenador">Entrenador</option>
 			</select>	
 		</div>
 		
@@ -98,7 +93,7 @@ $mysqli->close();
 		</div>
 
 		<div >
-			<input type="hidden" name="idempleado" value=<?php echo $idempleado;?>>
+			<input type="hidden" name="identrenador" value=<?php echo $identrenador;?>>
 			<input type="submit" name="modifica" value="Guardar">
 			<input type="button" value="Cancelar" onclick="location.href='index.php'">
 		</div>

@@ -8,12 +8,12 @@ include_once("config.php");
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">	
-	<title>Electroshop S.L.</title>
+	<title>Pokemon S.L.</title>
 </head>
 <body>
 <div>
 	<header>
-		<h1>ELECTROSHOP S.L.</h1>
+		<h1>Pokemon S.L.</h1>
 	</header>
 	<main>				
 
@@ -33,12 +33,12 @@ En PHP los datos se administran con el array asociativo $_GET. En nuestro caso e
 PHP proporciona el array asociativo $_POST para acceder a la información enviada.
 */
 
-	$idempleado = $mysqli->real_escape_string($_POST['idempleado']);
+	$identrenador = $mysqli->real_escape_string($_POST['identrenador']);
 	$name = $mysqli->real_escape_string($_POST['name']);
 	$surname = $mysqli->real_escape_string($_POST['surname']);
 	$age = $mysqli->real_escape_string($_POST['age']);
 	$pokemon_principal = $mysqli->real_escape_string($_POST['pokemon_principal']);
-	$job = $mysqli->real_escape_string($_POST['job']);
+	$puesto = $mysqli->real_escape_string($_POST['puesto']);
 	$ciudad_natal = $mysqli->real_escape_string($_POST['ciudad_natal']);
 
 /*Con mysqli_real_scape_string protege caracteres especiales en una cadena para ser usada en una sentencia SQL.
@@ -49,7 +49,7 @@ Escapado con mysqli_real_escape_string(): Se convierte en "O\'Reilly", evitando 
 */	
 
 //Se comprueba si existen campos del formulario vacíos
-	if(empty($name) || empty($surname) || empty($age) || empty($job))	{
+	if(empty($name) || empty($surname) || empty($age) || empty($pokemon_principal) || empty($puesto) || empty($ciudad_natal))	{
 		if(empty($name)) {
 			echo "<font color='red'>Campo nombre vacío.</font><br/>";
 		}
@@ -62,14 +62,22 @@ Escapado con mysqli_real_escape_string(): Se convierte en "O\'Reilly", evitando 
 			echo "<font color='red'>Campo edad vacío.</font><br/>";
 		}
 
-		if(empty($job)) {
-			echo "<font color='red'>Campo puesto vacío.</font><br/>";
+		if(empty($pokemon_principal)) {
+			echo "<font color='red'>Campo pokemon vacío.</font><br/>";
+		}
+
+		if(empty($puesto)) {
+			echo "<font color='red'>Campo Puesto vacío.</font><br/>";
+		}
+
+		if(empty($ciudad_natal)) {
+			echo "<font color='red'>Campo ciudad vacío.</font><br/>";
 		}
 	} //fin si
 	else //Se realiza la modificación de un registro de la BD. 
 	{
 		//Se actualiza el registro a modificar: update
-		$mysqli->query("UPDATE empleados SET nombre = '$name', apellido = '$surname',  edad = '$age', puesto = '$job' WHERE id = $idempleado");
+		$mysqli->query("UPDATE Entrenadores SET nombre = '$name', apellido = '$surname',  edad = '$age', pokemon_principal='$pokemon_principal', puesto = '$puesto', ciudad_natal ='$ciudad_natal' WHERE identrenador = $identrenador");
 		$mysqli->close();
         echo "<div>Registro editado correctamente...</div>";
 		echo "<a href='index.php'>Ver resultado</a>";

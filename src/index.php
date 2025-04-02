@@ -13,20 +13,19 @@ include_once("config.php");
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">	
-	<title>Electroshop S.L.</title>
+	<title>Pokemon S.L.</title>
 </head>
 <body>
 <div>
 	<header>
-		<h1>ELECTROSHOP S.A.</h1>
+		<h1>Entrenadores</h1>
 	</header>
 
 	<main>
 	<ul>
 		<li><a href="index.php">Inicio</a></li>
-		<li><a href="add.html">Alta</a></li>
+		<li><a href="add.html">Añadir competidor/a</a></li>
 	</ul>
-	<h2>YA HEMOS TERMINADO!!!!!!!!</h2>
 	<table border="1">
 	<thead>
 		<tr>
@@ -46,7 +45,7 @@ include_once("config.php");
 Cada fila y cada columna de la tabla se corresponde con un registro y campo de la tabla EMPLEADOS.
 */
 
-$resultado = $mysqli->query("SELECT * FROM Pokemon ORDER BY apellido, nombre");
+$resultado = $mysqli->query("SELECT * FROM Entrenadores ORDER BY apellido, nombre");
 
 //Cierra la conexión de la BD
 $mysqli->close();
@@ -91,7 +90,7 @@ A medida que avanza se va consturyendo cada fila de la tabla HTML con todos los 
 		echo "<tr>\n";
 		echo "<td>".$fila['nombre']."</td>\n";
 		echo "<td>".$fila['apellido']."</td>\n";
-		echo "<td>".$fila['edad']."</td>\n"
+		echo "<td>".$fila['edad']."</td>\n";
 		echo "<td>".$fila['pokemon_principal']."</td>\n";
 		echo "<td>".$fila['puesto']."</td>\n";
 		echo "<td>".$fila['ciudad_natal']."</td>\n";
@@ -99,8 +98,8 @@ A medida que avanza se va consturyendo cada fila de la tabla HTML con todos los 
 /* En la última columna se añade dos enlaces para editar y modificar el registro correspondiente. 
 Los datos se pueden enviar entre distintas páginas siguiendo distintos métodos. En este caso el id del registro a editar/eliminar se pasa a través de la URL. 
 Este forma de pasar el dato se conoce como: método GET*/
-		echo "<a href=\"edit.php?idempleado=$fila[id]\">Edición</a>\n";
-		echo "<a href=\"delete.php?idempleado=$fila[id]\" onClick=\"return confirm('¿Está segur@ que desea eliminar el empleado/a?')\" >Baja</a></td>\n";
+		echo "<a href=\"edit.php?identrenador=$fila[identrenador]\">Edición</a>\n";
+		echo "<a href=\"delete.php?identrenador=$fila[identrenador]\" onClick=\"return confirm('¿Está segur@ que desea eliminar este competidor/a?')\" >Derrotado</a></td>\n";
 		echo "</td>";
 		echo "</tr>\n";
 	}//fin mientras
