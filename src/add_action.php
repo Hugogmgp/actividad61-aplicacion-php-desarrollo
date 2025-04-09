@@ -8,12 +8,14 @@ include_once("config.php");
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">	
-	<title>Alta empleado/a</title>
+	<title>Nuevo entrenador/a</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+
 </head>
 <body>
 <div>
 	<header>
-		<h1>ELECTROSHOP S.L.</h1>
+		<h1>POKEMON S.L.</h1>
 	</header>
 	<main>
 
@@ -87,7 +89,7 @@ Escapado con mysqli_real_escape_string(): Se convierte en "O\'Reilly", evitando 
 		//Se cierra la conexión
 		$mysqli->close();
 		echo "<div>Registro añadido correctamente...</div>";
-		echo "<a href='index.php'>Ver resultado</a>";
+		echo "<a href='index.php'class='btn btn-outline-dark'>Ver resultado</a>";
 		//Se redirige a la página principal: index.php
 		//header("Location:index.php");
 	}//fin sino

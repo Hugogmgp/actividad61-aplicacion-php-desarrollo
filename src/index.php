@@ -14,6 +14,8 @@ include_once("config.php");
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">	
 	<title>Pokemon S.L.</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+
 </head>
 <body>
 <div>
@@ -23,10 +25,10 @@ include_once("config.php");
 
 	<main>
 	<ul>
-		<li><a href="index.php">Inicio</a></li>
-		<li><a href="add.html">Añadir competidor/a</a></li>
+		<li><a href="index.php" class="btn btn-outline-dark">Inicio</a></li>
+		<li><a href="add.html" class="btn btn-outline-dark">Añadir competidor/a</a></li>
 	</ul>
-	<table border="1">
+	<table border="1" class="table table-dark table-striped">
 	<thead>
 		<tr>
 			<th>Nombre</th>
@@ -98,8 +100,8 @@ A medida que avanza se va consturyendo cada fila de la tabla HTML con todos los 
 /* En la última columna se añade dos enlaces para editar y modificar el registro correspondiente. 
 Los datos se pueden enviar entre distintas páginas siguiendo distintos métodos. En este caso el id del registro a editar/eliminar se pasa a través de la URL. 
 Este forma de pasar el dato se conoce como: método GET*/
-		echo "<a href=\"edit.php?identrenador=$fila[identrenador]\">Edición</a>\n";
-		echo "<a href=\"delete.php?identrenador=$fila[identrenador]\" onClick=\"return confirm('¿Está segur@ que desea eliminar este competidor/a?')\" >Derrotado</a></td>\n";
+		echo "<a href=\"edit.php?identrenador=$fila[identrenador]\" class='btn btn-outline-light'>Edición</a>\n";
+		echo "<a href=\"delete.php?identrenador=$fila[identrenador]\" onClick=\"return confirm('¿Está segur@ que desea eliminar este competidor/a?')\" class='btn btn-outline-light'>Derrotado</a></td>\n";
 		echo "</td>";
 		echo "</tr>\n";
 	}//fin mientras
@@ -108,7 +110,7 @@ Este forma de pasar el dato se conoce como: método GET*/
 	</tbdody>
 	</table>
 	</main>
-	<footer>
+	<footer class="text-center">
     	Created by the IES Miguel Herrero team &copy; 2025
   	</footer>
 </div>

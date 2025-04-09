@@ -9,6 +9,8 @@ include_once("config.php");
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">	
 	<title>Pokemon S.L.</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+
 </head>
 <body>
 <div>
@@ -18,8 +20,8 @@ include_once("config.php");
 	
 	<main>				
 	<ul>
-		<li><a href="index.php" >Inicio</a></li>
-		<li><a href="add.html" >Añadir competidor/a</a></li>
+		<li><a href="index.php" class="btn btn-outline-dark">Inicio</a></li>
+		<li><a href="add.html" class="btn btn-outline-dark">Añadir competidor/a</a></li>
 	</ul>
 	<h2>Modificar competidor/a</h2>
 
@@ -56,7 +58,7 @@ $mysqli->close();
 <!--FORMULARIO DE EDICIÓN. Al hacer click en el botón Guardar, llama a la página (form action="edit_action.php"): edit_action.php
 -->
 
-	<form action="edit_action.php" method="post">
+	<form action="edit_action.php" method="post" >
 		<div>
 			<label for="name">Nombre</label>
 			<input type="text" name="name" id="name" value="<?php echo $name;?>" required>

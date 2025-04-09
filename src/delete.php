@@ -9,6 +9,8 @@ include("config.php");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Competidor/a derrotado/a</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+
 </head>
 <body>
 <div>
@@ -38,7 +40,7 @@ $result = $mysqli->query("DELETE FROM Entrenadores WHERE identrenador = $identre
 //Se cierra la conexión de base de datos previamente abierta
 $mysqli->close();
 echo "<div>Registro borrado correctamente...</div>";
-echo "<a href='index.php'>Ver resultado</a>";
+echo "<a href='index.php'class='btn btn-outline-dark'>Ver resultado</a>";
 //Se redirige a la página principal: index.php
 //header("Location:index.php");
 ?>
