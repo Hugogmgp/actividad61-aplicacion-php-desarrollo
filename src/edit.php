@@ -32,14 +32,14 @@ include_once("config.php");
 /*Obtiene el id del registro del empleado a modificar, idempleado, a partir de su URL. Este tipo de datos se accede utilizando el método: GET*/
 
 //Recoge el id del empleado a modificar a través de la clave idempleado del array asociativo $_GET y lo almacena en la variable idempleado
-$identrenador = $_GET['identrenador'];
+$Entrenadores_id = $_GET['Entrenadores_id'];
 
 //Con mysqli_real_scape_string protege caracteres especiales en una cadena para ser usada en una sentencia SQL.
-$identrenador = $mysqli->real_escape_string($identrenador);
+$Entrenadores_id = $mysqli->real_escape_string($Entrenadores_id);
 
 
 //Se selecciona el registro a modificar: select
-$resultado = $mysqli->query("SELECT apellido, nombre, edad, pokemon_principal, puesto, ciudad_natal FROM Entrenadores WHERE identrenador = $identrenador" );
+$resultado = $mysqli->query("SELECT apellido, nombre, edad, pokemon_principal, puesto, ciudad_natal FROM Entrenadores WHERE Entrenadores_id = $Entrenadores_id" );
 
 //Se extrae el registro y lo guarda en el array $fila
 //Nota: También se puede utilizar el método fetch_assoc de la siguiente manera: $fila = $resultado->fetch_assoc();

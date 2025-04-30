@@ -29,13 +29,13 @@ PHP proporciona el array asociativo $_POST para acceder a la información enviad
 */
 
 //Recoge el id del empleado a eliminar a través de la clave idempleado del array asociativo $_GET y lo almacena en la variable idempleado
-$identrenador= $_GET['identrenador'];
+$Entrenadores_id= $_GET['Entrenadores_id'];
 
 //Con mysqli_real_scape_string protege caracteres especiales en una cadena para ser usada en una sentencia SQL.
-$identrenador = $mysqli->real_escape_string($identrenador);
+$Entrenadores_id = $mysqli->real_escape_string($Entrenadores_id);
 
 //Se realiza el borrado del registro: delete.
-$result = $mysqli->query("DELETE FROM Entrenadores WHERE identrenador = $identrenador");
+$result = $mysqli->query("DELETE FROM Entrenadores WHERE Entrenadores_id = $Entrenadores_id");
 
 //Se cierra la conexión de base de datos previamente abierta
 $mysqli->close();

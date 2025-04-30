@@ -21,19 +21,19 @@
 La página: add.php se encargará de proceder a la inserción del registro en la tabla de empleados
 -->
 
-	<form action="add_action.php" method="post">
-		<div>
-			<label for="name">Nombre</label>
-			<input type="text" name="name" id="name" placeholder="nombre" required>
+	<form action="add_action.php" method="post" class="row g-3">
+		<div class="col-md-6" bordertype="solid">
+			<label for="name" class="form-label">Nombre</label>
+			<input  class="form-control" type="text" name="name" id="name" placeholder="nombre" required>
 		</div>
 
-		<div>
+		<div class="col-12" bordertype="solid">
 			<label for="surname">Apellido</label>
-			<input type="text" name="surname" id="surname" placeholder="apellido" required>
+			<input class="form-control" type="text" name="surname" id="surname" placeholder="apellido" required>
 		</div>
 
-		<div>
-			<label for="age">Edad</label>
+		<div class="col-12">
+			<label for="age" class="form-label">Edad</label>
 			<input type="number" name="age" id="age" placeholder="edad" required>
 		</div>
 		
