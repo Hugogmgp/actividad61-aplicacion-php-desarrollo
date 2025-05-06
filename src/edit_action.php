@@ -35,7 +35,7 @@ En PHP los datos se administran con el array asociativo $_GET. En nuestro caso e
 PHP proporciona el array asociativo $_POST para acceder a la información enviada.
 */
 
-	$identrenador = $mysqli->real_escape_string($_POST['identrenador']);
+	$Entrenadores_id = $mysqli->real_escape_string($_POST['Entrenadores_id']);
 	$name = $mysqli->real_escape_string($_POST['name']);
 	$surname = $mysqli->real_escape_string($_POST['surname']);
 	$age = $mysqli->real_escape_string($_POST['age']);
@@ -79,7 +79,7 @@ Escapado con mysqli_real_escape_string(): Se convierte en "O\'Reilly", evitando 
 	else //Se realiza la modificación de un registro de la BD. 
 	{
 		//Se actualiza el registro a modificar: update
-		$mysqli->query("UPDATE Entrenadores SET nombre = '$name', apellido = '$surname',  edad = '$age', pokemon_principal='$pokemon_principal', puesto = '$puesto', ciudad_natal ='$ciudad_natal' WHERE identrenador = $identrenador");
+		$mysqli->query("UPDATE Entrenadores SET nombre = '$name', apellido = '$surname',  edad = '$age', pokemon_principal='$pokemon_principal', puesto = '$puesto', ciudad_natal ='$ciudad_natal' WHERE Entrenadores_id = '$Entrenadores_id'");
 		$mysqli->close();
         echo "<div>Registro editado correctamente...</div>";
 		echo "<a href='index.php'>Ver resultado</a>";

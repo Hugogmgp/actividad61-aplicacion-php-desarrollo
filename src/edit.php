@@ -95,7 +95,7 @@ $mysqli->close();
 		</div>
 
 		<div >
-			<input type="hidden" name="identrenador" value=<?php echo $identrenador;?>>
+			<input type="hidden" name="Entrenadores_id" value=<?php echo $Entrenadores_id;?>>
 			<input type="submit" name="modifica" value="Guardar">
 			<input type="button" value="Cancelar" onclick="location.href='index.php'">
 		</div>
