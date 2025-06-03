@@ -20,7 +20,7 @@ include_once("config.php");
 <body>
 <div>
 	<header>
-		<h1>Entrenadores</h1>
+		<h1>Entrenadores Y Entrenadoras</h1>
 	</header>
 
 	<main>
